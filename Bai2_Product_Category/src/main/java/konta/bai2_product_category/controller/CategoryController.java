@@ -1,6 +1,7 @@
 package konta.bai2_product_category.controller;
 
 import konta.bai2_product_category.model.Category;
+import konta.bai2_product_category.repository.ICategoryRespository;
 import konta.bai2_product_category.repository.impl.CategoryRespository;
 
 import javax.servlet.ServletException;
@@ -84,9 +85,14 @@ public class CategoryController extends HttpServlet {
     private void saveCategory(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int id = categoryModel.inputCategoryId();
         String name = request.getParameter("name");
-        boolean status = Boolean.parseBoolean(request.getParameter("status"));
+        String status = request.getParameter("status");
+        boolean categoryStatus = true;
 
-        Category newCategory = new Category(id, name, status);
+        if (status == null) {
+            categoryStatus = false;
+        }
+
+        Category newCategory = new Category(id, name, categoryStatus);
         categoryRespository.save(newCategory);
 
         response.sendRedirect("category-controller");

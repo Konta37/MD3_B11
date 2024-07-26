@@ -15,6 +15,6 @@
 <p>ID: ${category.id}</p>
 <p>Name: ${category.name}</p>
 <p>Status: ${category.status ? "active" : "inactive"}</p>
-<a href="category-list.jsp">Back to CategoryList</a>
+<a href="category-controller">Back to CategoryList</a>
 </body>
 </html>

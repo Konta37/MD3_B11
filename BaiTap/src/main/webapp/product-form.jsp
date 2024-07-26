@@ -13,7 +13,7 @@
 <body>
 <h1>${product == null ? "Tạo Sản Phẩm Mới" : "Cập Nhật Sản Phẩm"}</h1>
 <form action="products" method="post">
-    <input type="hidden" name="action" value="${product == null ? 'save' : 'update'}">
+    <input type="hidden" name="action" value="${produ   ct == null ? 'save' : 'update'}">
     <c:if test="${product != null}">
         <input type="hidden" name="id" value="${product.id}">
     </c:if>
